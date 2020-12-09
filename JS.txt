@@ -1,0 +1,1069 @@
+IDIOMATIC JS
+
+https://github.com/rwaldron/idiomatic.js
+
+********
+Поменять местами переменные
+********
+
+function test() {
+    var a = "3";
+    var b = "8";
+    
+    //Write your code on lines 7 - 9:
+    var c = a;
+    a = b;
+    b = c;
+
+    console.log("a is " + a);
+    console.log("b is " + b);
+}
+
+********
+Узнать остаток слов
+********
+
+var tweet = propt("Your tweet");
+
+var tweetCount = tweet.lenght;
+
+alert( "Набрано " + tweetCount + "Осталось" + (140 - tweetCount));
+
+********
+Вырезать часть из строки
+********
+
+var name = "Al";
+name.slice(0,1);
+
+Вырезает часть с позиции 0 до единицы.
+********
+
+********
+Вставляет часть строки исходя из ее длины начиная со второго символа 
+********
+var restOfName = name.slice(1, name.lenght);
+
+********
+Сделать лимит на число слов
+********
+
+var tweet = propt("Your tweet");
+
+var tweetUnder140 = tweet.slice(0. 140);
+
+alert( tweetUnder140);
+
+********
+Функция
+********
+
+function getMilk()
+{
+    alert (get milk);
+}
+
+Вызов
+
+getMilk();
+
+********
+Аргументы функции
+********
+
+function getMilk(money)
+{
+
+    alert ("Move right");
+    alert ("Move straight");
+
+    var numberOfBottles = Math.floor(money * 1.5);
+
+    alert ("Get" + numberOfBottles + "milk");
+    alert ("Get milk");
+}
+
+getMilk(12);
+
+********
+If, Else
+********
+
+if (track === "clear") 
+{
+    goStraight();
+}
+else
+{
+    turningRight();
+}
+
+********
+Массив
+********
+
+Создание и номера в массиве
+
+var eggs = [0, 1, 2, 3...];
+
+var myEgg = eggs[1];
+
+Поиск по массиву
+eggs.includes("значение);
+
+********
+Wile, For
+********
+
+while (условие) 
+{
+
+}
+
+for (i = 0; i < 2;  i++)
+{
+
+}
+
+********
+Генератор Фабиначи
+********
+
+function fibonacciGenerator (n) {
+//Do NOT change any of the code above ??
+    
+    //Write your code here:
+    var output = [];
+        
+    if (n === 1)
+    {
+      output = [0];
+    } 
+            
+    else if (n === 2)
+    {
+      output = [0, 1]
+    }
+    
+    else 
+    {
+        output = [0, 1];
+        
+        for (var i = 2; i < n; i++) 
+        {
+        output.push(output[output.lenght - 2] + output[output.lenght - 1]);
+        }    
+    return output;
+  
+alert( output )
+
+********
+DOM
+********
+
+* Подключение JS.
+<script src="index.js" charset="utf-8"></script>
+
+* Как открыть структуру всего документа.
+document;   
+
+* Выбор первого дочернего элемента
+document.firstElementChild;
+
+* Выбор первого дочернего для первого дочернего.
+document.firstElementChild.document.firstElementChild
+
+* Выбор последнего дочернего элемента.
+document.lastElementChild
+
+* Сохранение выбранного селектором элемента в переменной
+(пример)
+
+var heading = document.firstElementChild.document.firstElementChild
+
+и манипуляция им
+heading.innerHTML = "Good Bye";
+heading.style.color = "red";
+
+* Выбор типа тэга(объекта)
+document.querySelector("input").click();
+
+* Выбор по типу тэга
+document.getElementsByTagName("li");
+Нельзя установить параметры для элементов в виде
+document.getElementByTagName("li").style.color ="purple";
+потому, что это всевдонабор элементов в СТРОКЕ. Для выбора конкретного элемента нужно указывать место в массиве:
+document.getElementByTagName("li")[2].style.color ="purple";
+
+* Выбор по классу
+document.getElementsByClassName("btn");
+не сработает:
+document.getElementsByClassName("btn").style.color = "red";
+Нужно
+document.getElementsByClassName("btn")[0].style.color = "red";
+
+* Выбор по ID
+document.getElementById("btn");
+cработает, так как это НЕ строка, а единичный объект:
+document.getElementById("btn").innerHTML = "Good Bye";
+
+* Выбор по селектору ОДНОГО объекта, удовлетворяющего параметрам.
+document.querySelector("h1");
+document.querySelector("#title");
+document.querySelector(".btn");
+
+* Комбинации:
+document.querySelector("li a");
+document.querySelector("li.title"); (если класс в тэге как дочерний)
+document.querySelector("li .title"); (если класс в тэге как более далекий потомок)
+
+* Выбор по селектору ВСЕХ объектов, удовлетворяющих параметрам.
+document.querySelectorAll("li a");  
+* Манипуляции происходят по индексу.
+document.querySelectorAll("li a")[2].style.color = "blue";
+
+* Узнать лист примененных к объекту классов (в консоли)
+.classList;
+Пример:
+document.querySelector("button").classList;
+
+* Добавить класс к листу:
+document.querySelector("button").classList.add("invisible");
+* Удалить класс от листа:
+document.querySelector("button").classList.remove("invisible");
+* Переключатель:
+document.querySelector("button").classList.toggle("invisible");
+
+* Замена текста:
+с вложенными тегами:
+document.getElementById("title").innerHTML = "Good Bye";
+только текст:
+document.getElementById("title").textContent = "Good Bye";
+    
+* Выбор по атрибутам:
+document.querySelector("a");
+далее
+document.querySelector("a").attributes;
+будет список атрибутов и можно выбрать необходимый атрибут:
+document.querySelector("a").getAttribute("href");
+Установить новый атрибут:
+document.querySelector("a").setAttribute("href", "http:....");
+
+EventsListener:
+
+* Первый и второй код идентичны.
+
+//Var1
+
+document.querySelector("button").addEventListener("click", handleClick)
+
+function handleClick()
+{
+alert("I got clicked");
+}
+
+//Var2
+
+document.querySelector("button").addEventListener("click", function(){alert('I got clicked.');});
+
+* Добавление события нажатия кнопки клавиатуры для ВебКнопки
+
+var numbersOfDrumButtons = document.querySelectorAll(".drum").length;
+
+for (var i = 0; i < numbersOfDrumButtons; i++) 
+    {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function()
+        {
+        alert("i got clicked");
+        });
+    }
+
+* Еще пример анонимной функции:
+
+Это тоже самое,
+
+$0.addEventListener("click", function()
+{
+    console.log("I got clicked");
+}
+); 
+
+что
+
+$0.addEventListener("click", respondToClick);
+
+function respondToCLick()
+{
+    console.log("I got clicked");
+}
+
+* Пример калькулятора:
+
+function add(num1, num2)
+{
+    return num1 + num2;
+}
+
+function subtract(num1, num2)
+{
+    return num1 - num2;
+}
+
+function multiply(num1, num2)
+{
+    return num1 * num2;
+}
+
+function divide(num1, num2)
+{
+    return num1 / num2;
+}
+
+function calculator(num1, num2, operator)
+{
+    return operator(num1, num2);
+}
+ 
+Вызов:
+calculator(4, 5, имя функции);
+        
+* Вызов дебаггера
+debugger;
+затем вызвать функцию, которую нужно отдебажить.
+calculator(3, 4, add);
+
+********
+Создание Объекта JS
+********
+
+Пример:
+var houseKeeper1 = 
+{
+    yearsOfExperience: 12;
+    name: "Jane";
+    cleaning: ["bathroom", "lobby", "bathroom"]
+}
+
+Функция - конструктор. Первая буква названия обязательно заглавная.
+
+function BellBoy (name, age, hasWorkPermit, languages)
+{
+    this.name = name;
+    this.age = age;
+    this.hasWorkPermit = hasWorkPermit;
+    this.languages = languages;
+}
+
+Инициализация:
+
+var bellBoy1 = new BellBoy("Timmy", 19, true, ["French", "English"]);
+
+********
+Код добавления музыки на страницу с использованием case
+********
+
+var numbersOfDrumButtons = document.querySelectorAll(".drum").length;
+var audio = new Audio('sounds_file.mp3');
+
+for (var i = 0; i < numbersOfDrumButtons; i++) 
+{
+document.querySelectorAll(".drum")[i].addEventListener("click", function()
+    {
+    var buttonInnerHTML = this.innerHTML;
+
+    switch (buttonInnerHTML)
+        {
+        case "w":
+        var tom1 = new Audio("sounds/tom-1.mp3");
+        tom1.play();
+        break;
+
+        case "a":
+        var tom2 = new Audio("sounds/tom-2.mp3");
+        tom2.play();
+        break;
+
+        case "s":
+        var tom3 = new Audio("sounds/tom-3.mp3");
+        tom3.play();
+        break;
+
+        case "d":
+        var tom4 = new Audio("sounds/tom-4.mp3");
+        tom4.play();
+        break;
+
+        case "j":
+        var snare = new Audio("sounds/snare.mp3");
+        snare.play();
+        break;
+
+        case "k":
+        var crash = new Audio("sounds/crash.mp3");
+        crash.play();
+        break;
+
+        case "l":
+        var kick = new Audio("sounds/kick-bass.mp3");
+        kick.play();
+        break;
+
+        default:
+        }
+    });
+}
+
+********
+Добавление анонимной функции в объект - конструктор 
+********
+
+var BellBoy1 = 
+{
+    name: "Timmy;
+    age: 19;
+    hasWorkPermit: true;
+    languages: ["French", "English"],
+    moveSuitcase: function () 
+    {
+        alert("May I take your suitcase?");
+        pickUpSuitcase();
+        movie();
+    }
+}
+
+вызов BellBoy1.moveSuitcase();
+
+********
+Добавление звуковых событий к кнопкам 
+********
+
+document.addEventListener("keydown", function(event)
+{
+    makeSound(event.key);
+}
+);
+    
+function makeSound (key)
+{
+    switch (buttonInnerHTML)
+    {
+        case "w":
+        var tom1 = new Audio("sounds/tom-1.mp3");
+        tom1.play();
+        break;
+
+        case "a":
+        var tom2 = new Audio("sounds/tom-2.mp3");
+        tom2.play();
+        break;
+
+        case "s":
+        var tom3 = new Audio("sounds/tom-3.mp3");
+        tom3.play();
+        break;
+
+        case "d":
+        var tom4 = new Audio("sounds/tom-4.mp3");
+        tom4.play();
+        break;
+
+        case "j":
+        var snare = new Audio("sounds/snare.mp3");
+        snare.play();
+        break;
+
+        case "k":
+        var crash = new Audio("sounds/crash.mp3");
+        crash.play();
+        break;
+
+        case "l":
+        var kick = new Audio("sounds/kick-bass.mp3");
+        kick.play();
+        break;
+
+        default:
+    }    
+}
+
+* Пример работы с нажатием мышки и нажатием клавиатуры
+
+// Button press
+
+    var numbersOfDrumButtons = document.querySelectorAll(".drum").length;
+
+for (var i = 0; i < numbersOfDrumButtons; i++) 
+{
+    document.querySelectorAll(".drum")[i].addEventListener("click", function()
+    {
+    var buttonInnerHTML = this.innerHTML;
+        
+    makeSound(buttonInnerHTML);
+
+    buttonAnimation(buttonInnerHTML);
+    });
+}
+
+// Keyboard press
+
+document.addEventListener("keydown", function(event)
+{
+    makeSound(event.key);
+    buttonAnimation(event.key);
+}
+);
+    
+function makeSound (key)
+{
+    switch (key)
+    {
+        case "w":
+        var tom1 = new Audio("sounds/tom-1.mp3");
+        tom1.play();
+        break;
+
+        case "a":
+        var tom2 = new Audio("sounds/tom-2.mp3");
+        tom2.play();
+        break;
+
+        case "s":
+        var tom3 = new Audio("sounds/tom-3.mp3");
+        tom3.play();
+        break;
+
+        case "d":
+        var tom4 = new Audio("sounds/tom-4.mp3");
+        tom4.play();
+        break;
+
+        case "j":
+        var snare = new Audio("sounds/snare.mp3");
+        snare.play();
+        break;
+
+        case "k":
+        var crash = new Audio("sounds/crash.mp3");
+        crash.play();
+        break;
+
+        case "l":
+        var kick = new Audio("sounds/kick-bass.mp3");
+        kick.play();
+        break;
+
+        default: console.log(key);
+    }    
+}
+
+********
+Добавление событий нажатия клавиши к кнопкам 
+********
+
+function anotherAddEventListener(typeOfEvent, callBack)
+{
+var eventThatHappened = 
+    {
+    eventType: "keydown";
+    key: "p";
+    durationOfKeydown: 2
+    }
+    
+if (eventThatHappened.eventType === typeOfEvent)
+    {
+    callback(eventThatHappened);  
+    }
+}
+
+anotherAddEventListener('keydown', function())
+{
+    
+});
+
+********
+Добавление анимации, выбор по имеющемуся классу с добавлением нового класса при нажатии
+********
+
+function buttonAnimation(currentKey)
+{
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");    
+}
+
+********
+Убрать класс по истечении какого-то времени.
+********
+
+setTimeout(function()
+{
+    activeButton.classList.remove("pressed");    
+},
+100);
+
+********
+JQuery
+********
+
+Google CDN. Ставится выше ссылки на файл JS.
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+Синтаксис:
+
+$
+=
+jQuery();
+
+Если ссылки добавлены в head:
+$(document).ready(function()
+{
+$('h1').css('color', 'red');
+});
+
+Или просто добавлять их в конец body.
+
+Пример синтаксиса:
+* Вместо document.querySelector("h1");
+
+Можно писать $('h1');
+
+*Вместо document.querySelectorAll("button");    
+    
+Можно писать $("button"); 
+
+* Для манипуляций со стилями следует писать 
+$('селектор').css("color", "green");
+
+* Для выбора значения в консоли:
+console.log($("h1").css("font-size");
+
+* Для добавления нового класса:
+$("h1").addClass("big-title");
+
+* Для добавления двух новых классов:
+$("h1").addClass("big-title margin-50");
+
+* Удаление класса:
+$("h1").removeClass("big-title");
+
+* Проверить в консоли имеет ли объект класс.
+$("h1").hasClass("margin-50");
+
+* Замена новым текстом:
+$("h1").text("Bye");
+
+* Замена новым текстом с разметкой:
+$("button").html("<em>Bye</em>");
+
+********
+Манипуляции с атрибутами
+********
+
+* Узнать атрибут из консоли
+console.log($("img").attr("src"));
+
+$("a").attr("href", "https://www.yahoo.com");
+
+* Узнать класс из консоли
+$("h1").attr("class");
+
+********
+Обработчик событий
+********
+
+$("h1").click(function() 
+{
+$("h1").css("color", "purple");
+});
+
+
+Вместо JS: 
+for (var i = 0; i < 5; i++)
+{
+document.querySelectorAll("button")[i].addEventListener("click", function()
+    {
+    document.querySelector("h1").style.color = "purple";
+    });
+}
+
+Можно писать:
+
+$("button").click(function()
+{
+$("h1").css("color", "purple");
+});
+
+* Добавление ивента при нажатии клавиши
+
+$("body").keypress(function(event)
+{
+console.log(event.key);
+});
+
+* Замена текста на странице клавишами
+$("body").keypress(function(event)
+{
+    $("h1").text(event.key);
+});
+
+* Добавление события по действию мышки
+$(h1).on("mouseover", function()
+{
+    $("h1").css("color", "purple");
+});
+
+$(h1).on("click", function()
+{
+    $("h1").css("color", "purple");
+});
+
+* Добавление элементов
+
+До и после тэга h1
+
+$("h1").before("<button>New</button>");
+$("h1").after("<button>New</button>");
+
+До и после контента внутри тэга h1
+
+$("h1").prepend("<button>New</button>");
+$("h1").append("<button>New</button>");
+
+* Удаление элементов
+
+* Быстро:
+
+$("button").remove();
+$("h1").gide();
+$("h1").show();
+$("h1").toggle();
+
+* Плавно:
+
+$("h1").fadeOut();
+$("h1").fadeIn();
+$("h1").fadeToggle();
+
+* Cлайдом:
+
+$("h1").slideUp();
+$("h1").slideDown();
+$("h1").slideToggle();
+
+* Анимация:
+
+$("h1").animate({opacity: 0.5});
+
+* Объединение:
+$("h1").slideUp().slideDown().animate({opacity: 0.5});
+
+*******
+Счетчик
+*******
+
+* Вариант с for.
+for(var i=0; i<posts.length; i++)
+{ 
+    console.log(posts[i].title);
+}; 
+
+ИЛИ 
+
+* Вариант с forEach
+
+posts.forEach(function(post){console.log(post.title)});
+
+*******
+Уменьшение вводимых букв
+*******
+
+* используется библиотека lodash
+
+Пример
+
+const requestedTitle = _.lowerCase(req.params.test);
+
+ИЛИ
+
+const storedTitle = _.lowerCase(post.title);
+
+========
+Функции выбора времени:
+
+
+const date = new Date();
+var hour = date.getHours();
+
+function timeFunction(hour){
+  return hour >= 12 || hour <= 6 ? "Доброе утро!" : "Добрый вечер!";
+};
+
+const time = timeFunction() + ". Текущее время: " + hour + ":";  // const time = `${timeFunction()}. Текущее время: ${hour}.`
+console.log(time);
+
+====
+
+function timeFunction() {
+    Data = new Date();
+    hour = Data.getHours();
+    nowIs = "";
+    if (hour >= 12 || hour <= 6) {
+        nowIs = "Доброе утро!";
+        Time = nowIs + ". Текущее время: " + hour + ":";
+        return Time;
+        ;
+    } else {
+        nowIs = "Добрый вечер!";
+        Time = nowIs + ". Текущее время: " + hour + ":";
+        return Time;
+        ;
+    }
+}
+console.log(timeFunction());
+
+
+=======
+Функция map. 
+=======
+
+//Map -Create a new array by doing something with each item in an array.
+
+Пример.
+чтобы сделать из массива функцию map и каждый элемент умножить на 2 нужно сделать 2 функции.
+1) умножает элемент на 2
+2) забирает первую функцию в себя и применяет ее к каждому элементу, возвращает новый массив, умноженный на 2
+
+\\ Исходные данные
+var numbers = [3, 56, 2, 48, 5];
+
+\\ Функция умножения на 2
+function double(x)
+{
+return x*2;
+}
+
+\\ Переменная, в которую записывается результат map, в которой первая функция
+const newNumbers = numbers.map(double);
+
+=== Более короткая запись той же функции
+
+const newNumbers = numbers.map(function (x)
+{return x*2});
+
+=======
+Filter
+=======
+//Filter - Create a new array by keeping the items that return true.
+
+\\ Исходные данные
+var numbers = [3, 56, 2, 48, 5];
+
+чтобы отсортировать данные и вернуть только те что меньше 10: 
+const newNumbers = numbers.filter(function(num)
+{
+return num < 10;
+}
+
+=======
+Reduce
+=======
+
+//Reduce - Accumulate a value by doing something to each item in an array.
+
+Аккумулирует значения.
+
+\\ Исходные данные
+var numbers = [3, 56, 2, 48, 5];
+
+\\ чтобы взять одно число и затем, пройтись по массиву, прибавить или сделать иные действия к этому числу другие действия - 
+
+var newNumber = numbers.reduce(function(accumulator, currentNumber)
+{
+ return accumulator + currentNumber;
+});
+
+в данном случае accumulator имеет  значение первого числа 3, currentNumber второго - 56, они складываются. на следующей итерации - повторятеся только первое число становится суммой первых двух.
+
+=======
+Find
+=======
+
+//Find - find the first item that matches from an array.
+
+ищет первое совпадение в массиве и выводит его
+
+\\ Исходные данные
+var numbers = [3, 56, 2, 48, 5];
+
+const number = numbers.find(function (num)
+{
+    return num > 10; 
+});
+
+Выведет 56 так как оно первое больше 10
+
+=======
+FindIndex
+=======
+
+//FindIndex - find the index of the first item that matches.
+
+const number = numbers.findIndex(function (num)
+{
+    return num > 10; 
+});
+
+выведет 1, так как у самого большого первого числа индекс 1
+
+=======
+Arrow
+=======
+пример.
+
+emojipedia.map(emojiTerm => 
+      <Entry key={emojiTerm.id} emoji={emojiTerm.emoji}
+      name={emojiTerm.name} description={emojiTerm.meaning}
+/>)
+
+=======
+Деструктуризация
+=======
+
+можно дать названия элементам массива (или объекта)
+
+const [red, green, blue] = [9, 33, 456];
+
+console.log(green) будет 33.
+
+Пример деструктуризации
+
+>>>> Массива
+
+const animals = [
+  { name: "cat",
+  sound: "meow" },
+  
+  { name: "dog", 
+  sound: "woof" }
+];
+
+const [cat, dog] = animals;
+
+>>>> Объекта (после того, как он был выделен в массиве как переменная cat)
+
++const {name, sound} = cat;
+
+name и sound экваивалентны cat.name и cat.sound
+
+В объекте название переменных должно совпадать с названием деструктуризированных переменных.
+Чтобы задать новые названия нужно указать их через двоеточие:
+
++const {name: catName, sound: catSound} = cat;
+
+Для установления значения по умолчанию 
+
+const {name = "Tysya", sound = "Meow"} = cat;
+
+>>>> Вложенные объекты:
+
+Исходный объект (переменная cat выделена в коде ранее):
+
+const animals = [
+  { name: "cat", sound: "meow",  feeding:
+    {
+    food: 2
+    water: 3
+    },
+  {name: "dog", sound: "woof" }
+];
+
+Деструктуризированный:
+
+const { name, sound, feeding: {food, water} } = cat;
+
+console.log(food) === 2
+
+console.log(water) === 3
+
+>>>> Деструктуризация с функцией
+
+Функция:
+function useAnimals (animal) 
+{
+ return 
+ [
+  animal.name
+  function ()
+    {
+    console.log(animal.sound)
+    }
+ ];
+}
+
+Деструктуризация:
+
+const{animal, makeSound} = useAnimals(cat);
+makeSound будет функцией с заданным параметром.
+
+======= Челлендж Деструктуризация =======
+
+\\ Файл с данными
+
+const cars = [
+  {
+    model: "Honda Civic",
+    coloursByPopularity: ["black", "silver"],
+    speedStats: {
+      topSpeed: 140,
+      zeroToSixty: 8.5
+    }
+  },
+  {
+    model: "Tesla Model 3",
+    coloursByPopularity: ["red", "white"],
+    speedStats: {
+      topSpeed: 150,
+      zeroToSixty: 3.2
+    }
+  }
+];
+
+\\ Код с выводом в таблицу
+
+\\ деструктуризация массива 1 уровня
+const [honda, tesla] = cars;
+
+\\ деструктуризация и присвоение имени для пемеренной "скорость"
+const {
+  speedStats: { topSpeed: hondaTopSpeed }
+} = honda;
+const {
+  speedStats: { topSpeed: teslaTopSpeed }
+} = tesla;
+
+
+\\ деструктуризация и присвоение имени для пемеренной "цвет"
+const {
+  coloursByPopularity: [hondaTopColour]
+} = honda;
+const {
+  coloursByPopularity: [teslaTopColour]
+} = tesla;
+
+  <table>
+    <tr>
+      <th>Brand</th>
+      <th>Top Speed</th>
+      <th>Top Colour</th>
+    </tr>
+    <tr>
+      <td>{tesla.model}</td>
+      <td>{teslaTopSpeed}</td>
+      <td>{teslaTopColour}</td>
+    </tr>
+    <tr>
+      <td>{honda.model}</td>
+      <td>{hondaTopSpeed}</td>
+      <td>{hondaTopColour}</td>
+    </tr>
+  </table>,
