@@ -249,7 +249,23 @@ document.querySelector("a").getAttribute("href");
 Установить новый атрибут:
 document.querySelector("a").setAttribute("href", "http:....");
 
+=======
 EventsListener:
+
+\\ создание функции по клику на все кнопки с классом drum (7 штук)
+
+let drumNumber = document.querySelectorAll('.drum').length;
+
+for (i=0; i<drumNumber; i++)
+{
+    document.querySelectorAll('.drum')[i].addEventListener('click', f_listenerClick)
+}
+
+function f_listenerClick()
+{
+    alert('@#$')
+}
+=======
 
 * Первый и второй код идентичны.
 
@@ -344,7 +360,7 @@ var houseKeeper1 =
     cleaning: ["bathroom", "lobby", "bathroom"]
 }
 
-Функция - конструктор. Первая буква названия обязательно заглавная.
+Функция - конструктор объектов. Первая буква названия обязательно заглавная.
 
 function BellBoy (name, age, hasWorkPermit, languages)
 {
@@ -496,11 +512,11 @@ for (var i = 0; i < numbersOfDrumButtons; i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click", function()
     {
-    var buttonInnerHTML = this.innerHTML;
+        var buttonInnerHTML = this.innerHTML;
         
-    makeSound(buttonInnerHTML);
+        makeSound(buttonInnerHTML);
 
-    buttonAnimation(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
     });
 }
 
@@ -673,7 +689,7 @@ $("h1").attr("class");
 
 $("h1").click(function() 
 {
-$("h1").css("color", "purple");
+    $("h1").css("color", "purple");
 });
 
 
@@ -682,7 +698,7 @@ for (var i = 0; i < 5; i++)
 {
 document.querySelectorAll("button")[i].addEventListener("click", function()
     {
-    document.querySelector("h1").style.color = "purple";
+        document.querySelector("h1").style.color = "purple";
     });
 }
 
@@ -690,14 +706,14 @@ document.querySelectorAll("button")[i].addEventListener("click", function()
 
 $("button").click(function()
 {
-$("h1").css("color", "purple");
+    $("h1").css("color", "purple");
 });
 
 * Добавление ивента при нажатии клавиши
 
 $("body").keypress(function(event)
 {
-console.log(event.key);
+    console.log(event.key);
 });
 
 * Замена текста на странице клавишами

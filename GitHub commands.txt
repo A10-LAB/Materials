@@ -12,7 +12,7 @@ git add (название файла)
 git add .
 
 Удалить из списка отслеживания конкретный файл
-git rm --cached (название файла)
+git rm --cached -r (название файла)
 
 4) Коммит
 git commit -m "Коммит"  
@@ -48,6 +48,8 @@ git remote add origin (путь к репозиторию)
 12) сделать пуш изменений 
 git push -u origin (название ветки)
 
+13) взять изменения с репозитория 
+git pull
 
 https://tproger.ru/translations/git-tips-and-tricks/
 
