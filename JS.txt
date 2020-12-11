@@ -229,8 +229,13 @@ document.querySelector("button").classList;
 
 * Добавить класс к листу:
 document.querySelector("button").classList.add("invisible");
+
+*Перезаписать класс у листа:
+document.querySelector("button").className = 'form-control error'
+
 * Удалить класс от листа:
 document.querySelector("button").classList.remove("invisible");
+
 * Переключатель:
 document.querySelector("button").classList.toggle("invisible");
 
@@ -1083,3 +1088,13 @@ const {
       <td>{hondaTopColour}</td>
     </tr>
   </table>,
+
+ ===========================================
+ ###### JonasSchmedtmann JS course #######
+ ===========================================
+  
+  https://github.com/jonasschmedtmann/complete-javascript-course
+  
+  
+  
+  
