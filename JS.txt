@@ -2,6 +2,8 @@ IDIOMATIC JS
 
 https://github.com/rwaldron/idiomatic.js
 
+http://kangax.github.io/
+
 ********
 Типы данных
 1. number
