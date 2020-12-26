@@ -3,6 +3,111 @@ IDIOMATIC JS
 https://github.com/rwaldron/idiomatic.js
 
 ********
+Типы данных
+1. number
+2. string
+3. boolean
+4. undefined
+5. null
+6. symbol(устарел)
+7. bigint
+
+********
+Шаблон литерала
+`'text' + ${variable}`
+
+********
+Type 1) convertion / 2) coercion 
+1) "Конвертация" - делается через код
+Number(variable)
+String(variable)
+Boolean(variable)
+
+********
+Типы false данных
+0
+" " 
+undefined
+null
+NaN
+
+2) "Преобразование " - делается движком автоматически
+пример:
+- при контактенации
+- в if \ else (приводит к boolean)
+
+********
+BOOLEAN
+
+Операторы - AND \ OR \ NOT
+
+********
+Операторы сравнения
+== - преобразует тип данных и сравнивает преобразованные данные (первое ко второму). не рекомендуется использовать
+
+=== - строгое соответствие по одному типу данных
+
+********
+SWITCH
+
+day = 'ВТ'
+
+switch (day)
+{
+case 'ЧТ': 
+    console.log('Сделать то-то')
+    break;
+case 'СР':
+    console.log('Сделать то-то')
+    break;
+case '':
+case 'ВТ:
+case 'ПТ:
+    console.log('Сделать то-то для ВТ и ПТ')
+    break;
+default:
+    console.log('Если ни одно из значений не подходит')
+    }
+
+********
+Тернарный оператор
+
+const age = 18
+age >=18 ? yes : no
+
+const age = 18
+age >=18 ? console.log (`I like drink wine`) : console.log (`I like drink water`) 
+
+// Тернарный оператор может выступать как expression и позволяет не определять "пустую" переменную 
+
+const age = 18
+const drink = age >=18 ? `drink wine` : `drink water`) 
+
+// при использовании if\else пришлось бы:
+
+let drink2
+if (age >= 18) 
+{
+        drink2 = `wine`
+}
+else
+{
+    drink2 = `water`
+}
+
+// Тернарный оператор может быть использован в литерале, в котором нельзя использовать statement типа if\state 
+const age = 18
+console.log(`I like to drink ${ age >= 18 ? 'wine' : 'water'}`)
+
+********
+expressions \ statement
+
+1) то, что определяет какую-то переменную
+2) не определяет переменную, а работает как логика. 
+также обычно заканчивается ;
+
+
+********
 Поменять местами переменные
 ********
 
