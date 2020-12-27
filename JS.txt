@@ -108,6 +108,31 @@ expressions \ statement
 2) не определ€ет переменную, а работает как логика. 
 также обычно заканчиваетс€ ;
 
+********
+STRICT MODE
+'use strict';
+до этой записи не должно быть кода, только комментарии
+
+********
+FUNCTIONS
+
+пример
+
+'use strict';
+
+'use strict'
+
+function fruitProcessor(apples, oranges) //параметры
+{
+    console.log(apples, oranges)
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+    console.log(juice) // определ€етс€ переменна€, котора€ не видна вне функции
+    return juice; // возвращает переменную juice, значение которой €записываетс€ при вызове функции
+}
+
+const juiceResult = fruitProcessor(5, 4) // аргументы. возврат переменной fruit €вл€етс€ результатом этого вызова, поэтому его можно сохранить в качестве переменной
+console.log(juiceResult)
+console.log(fruitProcessor(5, 4)) // можно не сохран€ть в переменной
 
 ********
 ѕомен€ть местами переменные
