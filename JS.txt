@@ -134,6 +134,71 @@ const juiceResult = fruitProcessor(5, 4) // аргументы. возврат переменной fruit 
 console.log(juiceResult)
 console.log(fruitProcessor(5, 4)) // можно не сохран€ть в переменной
 
+
+********
+DECLARARION \ EXPRESSION
+
+1) не хранитс€ в переменной, с названием функции
+можно вызвать до ее объ€влени€
+
+function calcAge(birthYear)
+{
+    return 2037 - birthYear
+}
+
+// вызов
+const age = calcAge (1986)
+
+2) хранитс€ в переменной, без названи€ функции
+нельз€ вызвать до ее объ€влени€
+
+const age = function (birthYear)
+{
+    return 2037 - birthYear
+}
+
+// вызов
+const age = calcAge (1986)
+
+********
+ARROW FUNCTIONS
+
+>>> вместо
+
+function calcAge1(birthYear)
+{
+    return 2037 - birthYear
+}
+
+>>> так (1 параметр и 1 строчка возврата)
+birthYear => 2037 - birthYear
+
+>>> сохранение в переменной:
+
+const calcAge = birthYear => 2037 - birthYear
+
+>>> вызов:
+
+const age = calcAge(1991) 
+
+>>> (один параметр и несколько строчек)
+
+const yearUntilRetirement = birthYear => 
+{
+    const age = 2037 - birthYear
+    const retirement = 65 - age
+    return retirement
+}
+
+>>> (несколько параметров и несколько строчек)
+
+const yearUntilRetirement = (birthYear,  firstName) =>
+{
+    const age = 2037 - birthYear
+    const retirement = 65 - age
+    return `${firstName} retires in ${retirement} years`
+}
+
 ********
 ѕомен€ть местами переменные
 ********
