@@ -221,6 +221,7 @@ function fruitProcessor(apples, oranges)
 
 +++
 
+
 ********
 Поменять местами переменные
 ********
