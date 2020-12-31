@@ -106,7 +106,7 @@ expressions \ statement
 
 1) то, что определяет какую-то переменную
 2) не определяет переменную, а работает как логика. 
-также обычно заканчивается ;
+также обычно заканчивается на ;
 
 ********
 STRICT MODE
@@ -133,7 +133,6 @@ function fruitProcessor(apples, oranges) //параметры
 const juiceResult = fruitProcessor(5, 4) // аргументы. возврат переменной fruit является результатом этого вызова, поэтому его можно сохранить в качестве переменной
 console.log(juiceResult)
 console.log(fruitProcessor(5, 4)) // можно не сохранять в переменной
-
 
 ********
 DECLARARION \ EXPRESSION
@@ -177,7 +176,7 @@ birthYear => 2037 - birthYear
 
 const calcAge = birthYear => 2037 - birthYear
 
->>> вызов:
+>>> вызов (с сохрением в переменной):
 
 const age = calcAge(1991) 
 
@@ -200,10 +199,34 @@ const yearUntilRetirement = (birthYear,  firstName) =>
 }
 
 ********
+CALLING FUNCTIONS
+
+// 1 функция, которая будет вызываться внутри другой функции
+
+function cutFruitPieces(fruit)
+{
+    return fruit * 4
+}
+
+// 2 функция, в которой вызывается 1 функция
+
+function fruitProcessor(apples, oranges) 
+{
+    const  applePieces = cutFruitPieces(apples) 
+    const  orangePieces = cutFruitPieces(oranges)
+    
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+    return juice;
+}
+
++++
+
+********
 Поменять местами переменные
 ********
 
-function test() {
+function test()
+{
     var a = "3";
     var b = "8";
     
@@ -270,7 +293,6 @@ getMilk();
 
 function getMilk(money)
 {
-
     alert ("Move right");
     alert ("Move straight");
 
