@@ -2004,8 +2004,6 @@ function F_addNote(newNote)
     })
 };
 
-
-
 // app.jsx
 
 import React from "react";
@@ -2135,8 +2133,6 @@ function F_deleteNote(id)
 }
 
 - в создаваемый Note добавляется параметр key и id - для того, чтобы связать id элемента и ключ, по которому можно будет его идентифицировать. 
-
-
 
 // app.jsx
 

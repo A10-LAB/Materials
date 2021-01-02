@@ -126,13 +126,17 @@ function fruitProcessor(apples, oranges) //параметры
 {
     console.log(apples, oranges)
     const juice = `Juice with ${apples} apples and ${oranges} oranges.`
-    console.log(juice) // определяется переменная, которая не видна вне функции
-    return juice; // возвращает переменную juice, значение которой язаписывается при вызове функции
+    console.log(juice) 
+    // определяется переменная, которая не видна вне функции
+    return juice;
+    // возвращает переменную juice, значение которой записывается при вызове функции. она должна быть записана в другую переменную для ее использования извне
 }
 
-const juiceResult = fruitProcessor(5, 4) // аргументы. возврат переменной fruit является результатом этого вызова, поэтому его можно сохранить в качестве переменной
+const juiceResult = fruitProcessor(5, 4)
+// аргументы. возврат переменной fruit является результатом этого вызова, поэтому его можно сохранить в качестве переменной
 console.log(juiceResult)
-console.log(fruitProcessor(5, 4)) // можно не сохранять в переменной
+console.log(fruitProcessor(5, 4))
+// можно не сохранять в переменной при вызове лога
 
 ********
 DECLARARION \ EXPRESSION
@@ -143,7 +147,7 @@ DECLARARION \ EXPRESSION
 function calcAge(birthYear)
 {
     return 2037 - birthYear
-}
+}   
 
 // вызов
 const age = calcAge (1986)
@@ -220,6 +224,28 @@ function fruitProcessor(apples, oranges)
 }
 
 ********
+Обычная и стрелочная функция (с тернарным оператором)
+
+const bill = 100
+
+function calcTip1 (billValue)
+{
+    let billTip
+     if (billValue >= 50 && billValue <= 300)
+    {return billTip = billValue*15/100}
+    else
+    {return billTip = billValue*20/100}
+}
+
+const calcTip2 = billValue => billValue >= 50 && billValue <= 300 ? billValue*15/100 : billValue*20/100
+
+const tip1 = calcTip1(bill)
+const tip2 = calcTip2(bill)
+
+console.log(`The bill was ${bill}, the tip was ${tip1}, and the total value ${bill + tip1}`);
+console.log(`The bill was ${bill}, the tip was ${tip2}, and the total value ${bill + tip2}`);
+
+********
 ARRAYS
 
 2 способа создания
@@ -270,6 +296,64 @@ const ages = [age1, 545+4664, 5657-6464]
 
 >>> includes - возвращает true\false если элемент в массиве или не в массиве. Использует строгое соответствие
 названиеМассива.includes('название элемента\строка')
+
+********
+OBJECTS
+
+// позволяет  использовать ключи - наименования\значения (property)
+
+// пример
+
+const jonas =
+{
+    firstName: 'jonas',
+    lastName: 'Schmedtmann',
+    age: 342-123,
+    job: 'teacher'
+    friends: ['friend1', 'friend2', 'friend3']
+    hasDriverLicense: true, 
+    calcAge:  function (birthYear) 
+    {
+            return 2037-birthYear
+    }
+    
+    // или
+    calcAge:  function () 
+    {
+            return 2037-this.birthYear
+    }
+    // то же самое что и ... .но в этом случае при изменении названия объекта не потребуется менять код внутри
+    calcAge:  function () 
+    {
+            return 2037-jonas.birthYear
+    }
+    // также можно записывать результаты функции-параметра объекта в новый параметр объекта
+    calcAge:  function () 
+    {
+            this.age = 2037-this.birthYear
+            return this.age
+    }
+}
+
+// обратиться к значению объекта 1) через точку, 2) через квадратные скобки 
+1)
+jonas.lastName
+
+2) 
+jonas['lastName']
+// в этом случае значение может рассчитываться - может применяться любое expression 
+
+// добавление значения в объект
+jonas.location = 'London'
+jonas.['car'] = 'volga'
+
+// вызов функции из объекта
+
+jonas.calcAge(1991)
+или
+jonas.['calcAge'](1991)
+
+>>> THIS - метод, который равняется объекту, из которого вызывается метод или равняется объекту, вызывающего метод
 
 ********
 Поменять местами переменные
