@@ -1,5 +1,8 @@
-IDIOMATIC JS
+LIVE SERVER
+1) как расширение для редакторов
+2) через node.js
 
+IDIOMATIC JS
 https://github.com/rwaldron/idiomatic.js
 
 http://kangax.github.io/
@@ -322,7 +325,7 @@ const jonas =
     {
             return 2037-this.birthYear
     }
-    // то же самое что и ... .но в этом случае при изменении названия объекта не потребуется менять код внутри
+    // то же самое что и код ниже, но в этом случае при изменении названия объекта не потребуется менять код внутри
     calcAge:  function () 
     {
             return 2037-jonas.birthYear
@@ -354,6 +357,135 @@ jonas.calcAge(1991)
 jonas.['calcAge'](1991)
 
 >>> THIS - метод, который равняется объекту, из которого вызывается метод или равняется объекту, вызывающего метод
+
+********
+LOOPS
+1) FOR - работает до тех пор, пока условие не станет false. запустится минимум 1 раз
+
+// Вместо
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5')
+console.log('6')
+
+// цикл
+for (let rep = 1; rep <=6; rep++)  
+{
+    console.log(rep)
+}
+
+// цикл FOR для перебора массивов 
+
+const jonas =
+[
+     'Jonas',
+     'Schmedtmann',
+     342-123,
+     'teacher',
+     ['friend1', 'friend2', 'friend3']
+]
+
+for (i=0; i<=5; i++)
+{
+    console.log(jonas[i], typeof jonas[i] )
+}
+//или
+for (i=0; i<=jonas.length; i++)
+{
+    console.log(jonas[i] typeof jonas[i])
+}
+
+// ПРИМЕР добавление значений из одного массива в другой через цикл
+
+const type = []
+
+for (i=0; i<=jonas.length; i++)
+{
+    // ПРИМЕР чтение массива
+    console.log(jonas[i] typeof jonas[i])
+
+    // ПРИМЕР наполнение массива оператором присвоения
+    types [i] = typeof jonas [i]
+
+    // ПРИМЕР наполнение массива методом push
+    types.push(typeof jonas[i])
+}
+
+// ПРИМЕР сложение значений в массиве и сохранение их в новый массив
+
+const years = [1991, 2059, 2077, 1969]
+const ages = []
+
+for (let i = 0; i <= years.length; i++)
+{
+    ages.push(3000 - years[i])
+}
+
+// CONTINUE STATEMENT - выходит из текущей итерации и продолжает следующую в рамках цикла
+ 
+в примере в консоль выводятся только те значения массива, которые ЯВЛЯЮТСЯ строками 
+
+for (i=0; i<=jonas.length; i++)
+{
+    if (typeof jonas[i] !== 'string') continue
+   
+   console.log (jonas[i])
+}
+ 
+// BREAK STATEMENT - прекращает цикл
+
+в примере ниже цикл прекращается при нахождении типа данных - число
+
+for (i=0; i<=jonas.length; i++)
+{
+    if (typeof jonas[i] === 'number') break
+}
+
+// ПРИМЕР - обратный цикл
+
+for (let i = jonas.length - 1; i >= 0; i--)
+{
+    console.log(jonas[i]);
+}
+
+// ПРИМЕР - цикл внутри цикла. Выведет 3 лога по 5 логов внутри каждого.  
+for (let exercise = 1; exercise >= 3; exercise++)
+{
+    console.log(`------- Starting exercise ${exercise}`);
+
+    for (let repitition = 1; repitition <6; repitition++
+    {
+        console.log(`------- Lifting weight ${repitition}`);
+    }
+}
+
+переменная exercise доступна во втором цикле
+
+2) WHILE - требует условие, но не счетчик. Работает до тех пор, пока условие не будет false. То есть, может работать без счетчика, отслеживая состояние. Цикл не будет запущен никогда если услоие изначально false.
+
+// ВМЕСТО такого цикла
+for (let rep = 1; rep <=6; rep++)  
+{
+    console.log(rep)
+}
+// ТАКОЙ
+let rep = 1;
+while (rep <= 10)
+{
+    console.log(rep)
+    rep++
+}
+
+ПРИМЕР использования цикла без счетчика. Задача - до тех пор, пока кубик не выбросит цифру 6 кидать кубик
+
+let dice = Math.trunc(Math.random() * 6) + 1
+while (dice !== 6) 
+{   
+    console.log(dice)
+    let dice = Math.trunc(Math.random() * 6) + 1 // создается новая переменная для того, чтобы не было бесконечного цикла так как в противном случае будет перезаписываться первая переменная
+}
 
 ********
 Поменять местами переменные
@@ -464,19 +596,6 @@ var myEgg = eggs[1];
 Поиск по массиву
 eggs.includes("значение);
 
-********
-Wile, For
-********
-
-while (условие) 
-{
-
-}
-
-for (i = 0; i < 2;  i++)
-{
-
-}
 
 ********
 Генератор Фабиначи
@@ -513,6 +632,8 @@ alert( output )
 ********
 DOM
 ********
+
+
 
 * Подключение JS.
 <script src="index.js" charset="utf-8"></script>
