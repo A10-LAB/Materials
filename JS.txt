@@ -633,8 +633,6 @@ alert( output )
 DOM
 ********
 
-
-
 * Подключение JS.
 <script src="index.js" charset="utf-8"></script>
 
@@ -714,6 +712,7 @@ document.querySelector("button").classList.remove("invisible");
 document.querySelector("button").classList.toggle("invisible");
 
 * Замена текста:
+
 с вложенными тегами:
 document.getElementById("title").innerHTML = "Good Bye";
 только текст:
@@ -731,6 +730,36 @@ document.querySelector("a").setAttribute("href", "http:....");
 =======
 EventsListener:
 
+console.log(document.querySelector('идентификатор').textContent
+выводит html содержание "объекта"
+
+для получения и установления значения из поля input или в поле input требуется использовать value
+пример.
+
+получение - console.log(document.querySelector('идентификатор поля input').value)
+
+установить значение - document.querySelector('идентификатор поля input').value = значение 
+
+document.querySelector('идентификатор').addEventListener('тип ивента', функция-handler)
+
+document.querySelector('.check').addEventListener('click', function() 
+{
+    console.log(document.querySelector('.guess').value)
+})
+
+*** 
+в логике приложения если значение не установлено можно использовать следующий код 
+
+if (!guess) {код}
+
+в данном случае если значение элемента - в данном случае переменной guess равно нулю то устанавливается значение falses (0 это неистинное значение)
+Пример:
+
+if (!guess)
+{
+    document.querySelector(.message).textContent = 'No Number'
+}
+
 \\ создание функции по клику на все кнопки с классом drum (7 штук)
 
 let drumNumber = document.querySelectorAll('.drum').length;
@@ -744,6 +773,53 @@ function f_listenerClick()
 {
     alert('@#$')
 }
+
+
+Для отслеживания нажатия кнопок следует создать "глобальный" EventsListener
+
+document.addEventListener('keydown', function(event)
+{
+    console.log(event)
+})
+
+Для спецификации кнопки : 
+console.log(event.key)
+
+Для реагирования на нажатие кнопки:
+
+document.addEventListener('keydown', function(event)
+{
+    if(event.key === 'Escape')
+    {
+        
+    }
+})
+
+Для того, чтобы определить какой класс в данный момент присвоен/ не присовен элементу
+document.addEventListener('keydown', function(event)
+{
+    if(event.key === 'Escape')
+    {
+        if(modal.classList..contains('hidden'))
+        {
+            
+        }
+        if(!modal.classList..contains('hidden'))
+        {
+            
+        }
+    }
+})
+
+или 
+document.addEventListener('keydown', function(event)
+{
+    if(event.key === 'Escape' && !modal.classList.contains('hidden'))
+    {
+    f_closeModal()
+    }
+})
+
 =======
 
 * Первый и второй код идентичны.
